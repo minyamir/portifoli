@@ -1,0 +1,219 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background-color: black;
+    font-family: 'Segoe UI', sans-serif;
+    color: white;
+    overflow: hidden;
+  }
+
+  /* Splash screen styles */
+  .splash {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: fadeOut 2s ease 3s forwards;
+  }
+
+  .splash h1 {
+    font-size: 48px;
+    color: #00ffc3;
+    animation: glow 1.5s ease-in-out infinite alternate, zoomBounce 1.5s ease;
+  }
+
+  @keyframes glow {
+    from {
+      text-shadow: 0 0 10px #00ffc3, 0 0 20px #00ffc3;
+    }
+    to {
+      text-shadow: 0 0 20px #00ffc3, 0 0 40px #00ffc3;
+    }
+  }
+
+  @keyframes zoomBounce {
+    0% {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+    60% {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes fadeOut {
+    to {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+  nav {
+    width: 100%;
+    background-color: #0a0a0a;
+    padding: 10px 0;
+    box-shadow: 0 4px 6px rgba(0, 255, 195, 0.2);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    transition: background-color 0.3s ease;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+  }
+
+  nav li {
+    font-size: 18px;
+    color: #00ffc3;
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+
+  nav li:hover {
+    transform: scale(1.1) rotate(5deg);
+    color: #00ffaa; /* Change color on hover */
+  }
+
+  nav a {
+    text-decoration: none;
+    color: inherit;
+    font-weight: bold;
+    display: inline-block;
+    position: relative;
+  }
+
+  /* Underline Animation */
+  nav a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #00ffc3;
+    bottom: -5px;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+  }
+
+  nav a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+ 
+
+  .flex-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+  }
+
+  .about {
+    padding: 50px 20px;
+    text-align: center;
+    background: linear-gradient(to right, #0f0f0f, #1c1c1c);
+    margin: 30px auto;
+    max-width: 900px;
+    border-radius: 15px;
+    perspective: 1000px;
+    transition: transform 0.2s ease;
+    animation: float 4s ease-in-out infinite;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #00ffc3;
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.2);
+  }
+
+  .about::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(120deg, transparent, #00ffc3, transparent);
+    transform: rotate(0deg);
+    animation: shine 5s linear infinite;
+  }
+
+  @keyframes shine {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+      box-shadow: 0 0 25px rgba(0, 255, 255, 0.2);
+    }
+    50% {
+      transform: translateY(-10px);
+      box-shadow: 0 0 40px rgba(0, 255, 255, 0.4);
+    }
+  }
+
+span {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
+  font-size: 40px;
+  line-height: 1.7;
+  color: #eaeaea;
+  z-index: 2;
+  position: relative;
+  font-weight: bold;
+  }
+  h2{
+    color:#151515;
+  }
+
+  .about-content {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+    font-size: 18px;
+    line-height: 1.7;
+    color: #eaeaea;
+    z-index: 2;
+    position: relative;
+  }
+
+  .about-content img {
+    border-radius: 50%;
+    box-shadow: 0 0 10px #00ffc3;
+    width: 230px;
+    height: 140px;
+  }
+
+  @media (max-width: 768px) {
+    .about-content {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
